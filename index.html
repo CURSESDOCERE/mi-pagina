@@ -1,32 +1,34 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Mi programa - HTML</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div class="contenedor">
-
-    <h1>Bienvenido</h1>
-
-    <img src="Astronaut.jpg" alt="Imagen principal">
-
-    <input type="text" id="nombre" placeholder="Escribe tu nombre">
-
-    <button onclick="mostrarNombre()">Enviar</button>
-
-    <p id="resultado"></p>
-
-</div>
-
 <script>
-function mostrarNombre() {
+
+function guardarNombre() {
+
     let nombre = document.getElementById("nombre").value;
-    document.getElementById("resultado").innerText = "Hola " + nombre;
+
+    if(nombre === ""){
+        alert("Escribe un nombre");
+        return;
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbwqInbY9a34_aT6d-jebmQtx6lhqHPFw55EOjmcjWmdY9UdKmoM3RVGhzX5aEv3FbbcOQ/exec", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "nombre=" + encodeURIComponent(nombre)
+    })
+
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("resultado").innerText = "Registrado: " + nombre;
+        document.getElementById("nombre").value = "";
+    })
+
+    .catch(error => {
+        console.error(error);
+        alert("Error al guardar el nombre");
+    });
+
 }
+
 </script>
 
-</body>
-</html>
