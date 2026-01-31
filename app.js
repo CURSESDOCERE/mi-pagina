@@ -1,4 +1,4 @@
-const URL_API = "PEGA_AQUI_TU_URL";
+const URL_API = "https://script.google.com/macros/s/AKfycbwr8SsSNnyaucMn2PfBfLu-TwQ5X2miGXYJ-nmIZriCDcQDHCLDqbH7sJAwljILj5vE/exec";
 
 let adminActivo = "";
 let empleadoActual = {};
@@ -81,3 +81,4 @@ alert("Registro guardado");
 });
 
 }
+
