@@ -1,59 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi programa - HTML</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>SIMA - Login</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="contenedor">
+<div class="login-box">
 
-    <h1>Registro</h1>
+<h2>SIMA</h2>
+<p>Centro Nacional de Trasplantes</p>
 
-    <img src="imagen.jpg" alt="Imagen principal">
+<input id="usuario" placeholder="Usuario">
+<input id="password" type="password" placeholder="Contraseña">
 
-    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+<button onclick="login()">Ingresar</button>
 
-    <button onclick="guardarNombre()">Guardar</button>
-
-    <p id="resultado"></p>
+<p id="msg"></p>
 
 </div>
 
-<script>
-
-function guardarNombre() {
-
-    let nombre = document.getElementById("nombre").value;
-
-    if(nombre === ""){
-        alert("Escribe un nombre");
-        return;
-    }
-
-    fetch("https://script.google.com/macros/s/AKfycbwqInbY9a34_aT6d-jebmQtx6lhqHPFw55EOjmcjWmdY9UdKmoM3RVGhzX5aEv3FbbcOQ/exec", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: "nombre=" + encodeURIComponent(nombre)
-    })
-
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("resultado").innerText = "Registrado: " + nombre;
-        document.getElementById("nombre").value = "";
-    })
-
-    .catch(error => {
-        console.error(error);
-        alert("Error al guardar el nombre");
-    });
-
-}
-
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
