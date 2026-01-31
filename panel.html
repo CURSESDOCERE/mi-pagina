@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>SIMA - Panel RH</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="panel">
+
+<h2>Panel RH - SIMA</h2>
+
+<input id="buscarID" placeholder="ID Empleado">
+
+<button onclick="buscarEmpleado()">Buscar</button>
+
+<div id="ficha"></div>
+
+<div id="acciones" style="display:none">
+
+<button class="verde" onclick="registrar('Presente')">Presente</button>
+<button class="amarillo" onclick="registrar('Retardo')">Retardo</button>
+<button class="rojo" onclick="registrar('Ausente')">Ausente</button>
+<button class="azul" onclick="registrar('Salida')">Salida</button>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
